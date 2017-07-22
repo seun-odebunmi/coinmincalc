@@ -1,0 +1,319 @@
+@media only screen and (max-width: 6000px) and (min-width: 700px) {
+    .wrapper.right-bar-enabled {
+        .right-bar {
+            right: 0;
+            z-index: 99;
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .button-menu-mobile {
+        display: block !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .enlarged {
+        .left.side-menu {
+            margin-left: -75px;
+        }
+    }
+
+    .topbar-left {
+        width: 70px !important;
+    }
+
+    .content-page .content {
+        margin-top: 95px;
+    }
+
+    .topbar .topbar-left {
+        height: 75px;
+    }
+
+    .navbar-default {
+        background-color: @white;
+        box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+    }
+
+    .navbar-nav {
+        margin: 8px -15px;
+        /*display: inline-block;*/
+        li {
+            display: block;
+            line-height: 1px;
+        }
+    }
+
+    .navbar-nav.navbar-right {
+        //float: right;
+    }
+
+    .notification-box {
+        display: inline;
+
+        ul {
+            li {
+                a {
+                    line-height: 46px;
+                }
+            }
+        }
+
+        .pulse {
+            top: 5px;
+        }
+
+        .dot {
+            top: -7px;
+            left: -3px;
+        }
+    }
+
+    #topnav .navbar-toggle {
+        margin-right: 5px;
+    }
+
+    .navbar-nav {
+        .open {
+            .dropdown-menu {
+                background-color: @white;
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+                left: auto;
+                position: absolute;
+                right: 0;
+
+                li {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .content-page {
+        margin-left: 0px !important;
+    }
+
+    .footer {
+        left: 0px !important;
+    }
+
+    .mobile-sidebar {
+        left: 0px;
+    }
+
+    .mobile-content {
+        left: 250px;
+        right: -250px;
+    }
+
+    .wrapper-page {
+        width: 90%;
+    }
+
+    .dataTables_wrapper {
+        .col-xs-6 {
+            width: 100%;
+            text-align: left;
+        }
+    }
+
+    div#datatable-buttons_info {
+        float: none;
+    }
+
+    .xs-pull-none {
+        float: none !important;
+    }
+
+    .xs-pull-left {
+        float: left !important;
+    }
+
+    .xs-pull-right {
+        float: right !important;
+    }
+
+    .btn-large{
+        padding:9px 16px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .side-menu {
+        z-index: 10 !important;
+    }
+
+    .button-menu-mobile {
+        display: block;
+    }
+
+    .search-bar {
+        display: none !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .hide-phone {
+        display: none !important;
+    }
+}
+
+/* Container-alt */
+@media (min-width: 768px) {
+    .container-alt {
+        width: 750px;
+    }
+
+    .nav-tabs.nav-justified > li > a {
+        border-bottom: 2px solid @light;
+    }
+
+    .account-body {
+
+        .wrapper-page {
+            padding: 80px 40px 40px;
+
+            .card-box {
+
+                &.account-form {
+                    padding: 40px 40px 0 !important;
+                }
+            }
+
+            .account-form {
+                padding: 100px 30px 0;
+
+                .account-bottom-section {
+                    margin: 0 -30px;
+                    padding: 40px 30px 30px;
+                }
+
+                .form-control {
+                    height: 66px;
+                    margin-bottom: 2em;
+                }
+
+                button {
+                    height: 84px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .container-alt {
+        width: 970px;
+    }
+
+    .account-body {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        min-height: 100vh;
+
+        .wrapper-page, .select-section, .select-section > div, .account-form {
+            display: flex;
+        }
+
+        .wrapper-page {
+            width: 960px;
+            height: 600px;
+            flex-direction: column;
+            padding: 0;
+
+            button {
+                width: 360px;
+            }
+
+            .card-box {
+
+                &.account-form {
+
+                    button {
+                        margin-bottom: 60px;
+                    }
+                }
+            }
+
+            .account-form {
+                width: 440px;
+                height: 600px;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+                position: absolute;
+                left: 40px;
+                bottom: 40px;
+                padding: 0;
+
+
+
+                .account-bottom-section {
+                    display: none;
+                }
+
+                .form-control {
+                    width: 360px;
+                    height: 44px;
+                    margin-bottom: 1em;
+                }
+
+                button {
+                    margin-bottom: 100px;
+                    height: 64px;
+                }
+
+                p {
+                    display: flex;
+                    width: 360px;
+                }
+            }
+
+            .select-section {
+                display: flex;
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-alt {
+        width: 1170px;
+    }
+}
+
+@media (max-width: 419px) {
+    .topbar-left {
+        width: 70px !important;
+    }
+
+    .content-page {
+        margin-left: 70px;
+    }
+
+    .forced {
+        .side-menu.left {
+            box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);
+            position: absolute;
+        }
+    }
+
+    .enlarged {
+        .side-menu.left {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
+        }
+    }
+}
