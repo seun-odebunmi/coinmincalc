@@ -59,7 +59,7 @@
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div class="form-group pull-right xs-pull-none">
                             <input type="text" ng-model="amountValue" name="amountValue" placeholder="Amount..." class="form-control" ng-required="true">
-							<p><span class="error validationerror" ng-show="coinCalcForm.amountValue.$invalid && coinCalcForm.amountValue.$touched">Must be a valid number!<br/></span>
+							<p><span data-ng-cloak class="error validationerror" ng-show="coinCalcForm.amountValue.$invalid && coinCalcForm.amountValue.$touched">{{errorMsg}}<br/></span>
 								<span>Press 'Enter' key or click 'Submit' button to calculate</span></p>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                                         <th>Number</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody data-ng-cloak>
                                     <tr ng-repeat="x in finalCoins">
                                         <td>{{ x.denomination }}</td>
                                         <td>{{ x.pennyCount }}</td>
