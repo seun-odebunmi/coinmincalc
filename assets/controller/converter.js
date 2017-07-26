@@ -1,5 +1,5 @@
 angular.module("coinConvApp", [])
-.controller("myCoinConvCtrl", function ($scope) {
+.controller("myCoinConvCtrl", function myCoinConvCtrl ($scope) {
 	
 	//store all possible coins and their value
 	$scope.presetCoins = [
@@ -17,38 +17,53 @@ angular.module("coinConvApp", [])
 	$scope.inputValidation = function (inputAmount) {
 		var amount = inputAmount;
 		
-		if (amount.match(/(?=.)^\£?(([1-9][0-9]{0,2}(,[0-9]{3})*)|0)?(\.[0-9]{1,2})?$/)) {
-			if (amount.charAt(0) === '£') {
-				amount = amount.substr(1) * 100;
-			}
+        if ((/^(\u00A3)?([0-9\.]+)p?$/).test(amount) && amount !== 0) {
+            
+            amount = amount.toString();
+            if(amount.indexOf("£") > -1 || amount.indexOf(".") > -1) {
+                amount = amount.replace(/[^\d.-]/g, ''); 
+                amount = parseFloat(amount).toFixed(2);
+                amount = (amount * 100).toFixed(0);
+            } 
+            else {
+                amount = amount.replace(/[^\d.-]/g, '');
+                amount = parseFloat(amount).toFixed(0);
+            }
 			$scope.errorMsg = "";
+            return parseFloat(amount);
+            
 		}else{
-			amount = 0;
 			$scope.errorMsg = "Please enter a valid amount ex. ($24.50)";
-			$scope.coinCalcForm.amountValue.$invalid = true;
+			//$scope.coinCalcForm.amountValue.$invalid = true;
+            return false;
 		}
-		return parseInt(amount);
+		
 	};
 
     // calculate the least number of pennies
 	$scope.minNumCoins = function (inputAmount) {
-        var amount = inputAmount;
+        var amount = $scope.inputValidation(inputAmount);
         var result = [];
-
-        $.each($scope.presetCoins, function (index, coinObj) {
-            if (Math.floor(amount/coinObj.penceValue) !== 0){ //ensure amount is divisible by current coin at least once
-                result.push( { "denomination": coinObj.denomination, "pennyCount": Math.floor(amount/coinObj.penceValue) } );
-            }
-            amount %= coinObj.penceValue;
-        });
-        return result;
+        
+        if (amount){
+            
+            $.each($scope.presetCoins, function (index, coinObj) {
+                if (Math.floor(amount/coinObj.penceValue) !== 0){ //ensure current amount is not zero
+                    result.push( { "denomination": coinObj.denomination, "pennyCount": Math.floor(amount/coinObj.penceValue) } );
+                }
+                amount %= coinObj.penceValue;
+            });
+            return result;
+        }else{
+            return false;
+        }
+        
     };
 
     $scope.amountValue = "";
 	$scope.errorMsg = "Must be a valid number!";
     $scope.finalCoins = [];
     $scope.calcMinCoin = function () {
-		var validAmount = $scope.inputValidation($scope.amountValue);
-        $scope.finalCoins = $scope.minNumCoins(validAmount);
+        $scope.finalCoins = $scope.minNumCoins($scope.amountValue);
     }
 });
