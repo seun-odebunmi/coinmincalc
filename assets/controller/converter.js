@@ -34,7 +34,6 @@ angular.module("coinConvApp", [])
             
 		}else{
 			$scope.errorMsg = "Please enter a valid amount ex. ($24.50)";
-			//$scope.coinCalcForm.amountValue.$invalid = true;
             return false;
 		}
 		
@@ -61,7 +60,7 @@ angular.module("coinConvApp", [])
     };
 
     $scope.amountValue = "";
-	$scope.errorMsg = "Must be a valid number!";
+	$scope.errorMsg = "";
     $scope.finalCoins = [];
     $scope.calcMinCoin = function () {
         $scope.finalCoins = $scope.minNumCoins($scope.amountValue);
